@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coder's Calendar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main.css" rel="stylesheet"  type="text/css"/>
+        <script src="js/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <input  id="HE" type="hidden" name="HE" value=".hackerearth">
+        <input  id="CC" type="hidden" name="CC" value=".codechef">
+        <input  id="CF" type="hidden" name="CF" value=".codeforces">
+        
+        <div id="loader"></div>
+        <div class='header'>
+            <div class='holder'>
+                <a href="index.html"> <img class="logo" src="res/logo.png"></a>
+            </div>
+        </div>
+        <div class='menu'>
+            <div class='menu_item' id="all" onclick="clickedAll()">All</div>
+            <div class='menu_item' id="select" onclick="clickedSelect('.hackerearth')">Hackerearth</div>
+            <div class='menu_item' id="select" onclick="clickedSelect('.codechef')">Codechef</div>
+            <div class='menu_item' id="select" onclick="clickedSelect('.codeforces')">Codeforces</div>
+        </div>
+       
+    <div class ='list'>
+    </div>
+        
+        <script>
+    window.document.ready(init());        
+    function init()
+            {
+                $("#loader").show();
+                $.ajax({url:"HtmlGeneratorServletDb",
+                    type:"POST",
+                        success:function(res)
+                        {
+                            $("#loader").hide();
+                            $(".list").append(res);
+                        }});
+            }
+    
+    $("a").click(function(){
+        alert("Clicked Link");
+    });
+    function clickedSelect(d)
+        {
+            var v = ($(":input[name=CC]").val());
+            if(v!=(""+d))
+                $(""+v).hide();
+            else
+                $(""+v).show();
+            v = ($(":input[name=CF]").val());
+            if(v!=(""+d))
+                $(""+v).hide();
+            else
+                $(""+v).show();
+            v = ($(":input[name=HE]").val());
+            if(v!=(""+d))
+                 $(""+v).hide();
+            else
+                $(""+v).show();
+
+    }
+        function clickedAll()
+        {
+            var v = ($(":input[name=CC]").val());
+            $(""+v).show();
+            v = ($(":input[name=CF]").val());
+            $(""+v).show();
+            v = ($(":input[name=HE]").val());
+            $(""+v).show();
+        }
+        </script>
+    </body>
+</html>
