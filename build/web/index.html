@@ -27,13 +27,15 @@
        
     <div class ='list'>
     </div>
-        
+        <div class ='footer'>
+            <h3>Made with love by geekyd</h3>
+        </div>
         <script>
     window.document.ready(init());        
     function init()
             {
                 $("#loader").show();
-                $.ajax({url:"HtmlGeneratorServletDb",
+                $.ajax({url:"HtmlGeneratorServlet",
                     type:"POST",
                         success:function(res)
                         {

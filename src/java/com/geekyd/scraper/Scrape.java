@@ -34,7 +34,7 @@ public class Scrape
         data = new ArrayList<Data>();
         fData = new ArrayList<Data>();
         p = new Parser();
-        data.addAll(getCodechef("Present Contests","Future Contests"));
+        data.addAll(getCodechef("Present Contests", "Future Contests"));
         data.addAll(getCodeforcesSpoj(CF));
         data.addAll(getHackerearth());
         
@@ -97,6 +97,7 @@ public class Scrape
         {
             System.err.println(ex);
         }
+        System.out.println("Out of codechef");
     return temp;
     }
     public ArrayList<Data> getHackerearth()

@@ -46,7 +46,7 @@ public class HtmlGeneratorServlet extends HttpServlet {
             date = Calendar.getInstance().getTime();
             CallableStatement cs = con.prepareCall("{call insertContest(?,?,?,?,?,?)}");
             while(i.hasNext() && !i.equals(null))
-            {
+            {   
                 d = (Data)i.next(); 
                 cs.setString(1, d.getName());
                 cs.setString(2, d.getCompany());
@@ -54,7 +54,8 @@ public class HtmlGeneratorServlet extends HttpServlet {
                 cs.setString(4, d.getUrl());
                 cs.setTimestamp(5,new Converter().javaToSQL(d.getStart()));
                 cs.setTimestamp(6,new Converter().javaToSQL(d.getEnd()));
-                cs.execute();
+                //cs.execute();
+                System.out.println(d.getName());
                 if(date.after(d.getStart()))
                     addToNow(d);
                 else

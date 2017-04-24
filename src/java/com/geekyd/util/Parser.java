@@ -20,10 +20,9 @@ public class Parser
         d.setCompany("Codechef");
         d.setImageIcon("codechef.png");
         d.setName(cell.split("&")[1]);
-        d.setStart(c.getDateFull(cell.split("&")[2]));
-        d.setEnd(c.getDateFull(cell.split("&")[3]));
+        d.setStart(c.getDateFullCC(cell.split("&")[2]));
+        d.setEnd(c.getDateFullCC(cell.split("&")[3]));
         d.setUrl(cell.split("&")[4]);
-        //System.out.println(cell);
         return d;
     }
     public Data parseCF(String cell)
